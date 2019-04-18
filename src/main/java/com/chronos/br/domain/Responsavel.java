@@ -1,33 +1,36 @@
 package com.chronos.br.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 
 @Entity
-public class Evento implements Serializable {
+public class Responsavel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private Date data;
-	private String horarioInicio;
-	private String horarioFinal;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_reponsavel")
-	private Responsavel responsavel;
-	
 
+	@OneToMany(mappedBy = "responsavel_id_responsavel")
+	private List<Evento> eventos = new ArrayList<Evento>();
+
+	public List<Evento> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	// Usa droga
 	public Integer getId() {
 		return id;
 	}
@@ -42,30 +45,6 @@ public class Evento implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
-	public String getHorarioInicio() {
-		return horarioInicio;
-	}
-
-	public void setHorarioInicio(String horarioInicio) {
-		this.horarioInicio = horarioInicio;
-	}
-
-	public String getHorarioFinal() {
-		return horarioFinal;
-	}
-
-	public void setHorarioFinal(String horarioFinal) {
-		this.horarioFinal = horarioFinal;
 	}
 
 	@Override
@@ -84,7 +63,7 @@ public class Evento implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Evento other = (Evento) obj;
+		Responsavel other = (Responsavel) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -93,16 +72,13 @@ public class Evento implements Serializable {
 		return true;
 	}
 
-	public Evento(Integer id, String nome, Date data, String horarioInicio, String horarioFinal) {
-
+	public Responsavel(Integer id, String nome, List<Evento> eventos) {
 		this.id = id;
 		this.nome = nome;
-		this.data = data;
-		this.horarioInicio = horarioInicio;
-		this.horarioFinal = horarioFinal;
+		this.eventos = eventos;
 	}
 
-	public Evento() {
+	public Responsavel() {
 
 	}
 
