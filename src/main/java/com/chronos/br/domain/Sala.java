@@ -19,8 +19,10 @@ public class Sala implements Serializable {
 	private Integer id;
 	private String nome;
 
-	@OneToMany(mappedBy = "responsavel_id_responsavel")
+	@OneToMany(mappedBy = "sala_id_sala")
 	private List<Evento> eventos = new ArrayList<Evento>();
+
+	
 
 	public Integer getId() {
 		return id;

@@ -18,15 +18,41 @@ public class Evento implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
+	private String evento;
 	private Date data;
-	private String horarioInicio;
-	private String horarioFinal;
+	private String turno;
+	private String unMatriz;
+	private String turma;
+	private String modalidade;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_reponsavel")
+	@JoinColumn(name = "id_responsavel")
 	private Responsavel responsavel;
 	
+	@ManyToOne
+	@JoinColumn(name="id_sala")
+	private Sala sala;
+
+	public Evento() {
+
+	}
+
+	
+	
+	public Evento(Integer id, String evento, Date data, String turno, String unMatriz, String turma, String modalidade,
+			Responsavel responsavel, Sala sala) {
+		this.id = id;
+		this.evento = evento;
+		this.data = data;
+		this.turno = turno;
+		this.unMatriz = unMatriz;
+		this.turma = turma;
+		this.modalidade = modalidade;
+		this.responsavel = responsavel;
+		this.sala = sala;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -36,12 +62,12 @@ public class Evento implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getEvento() {
+		return evento;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setEvento(String evento) {
+		this.evento = evento;
 	}
 
 	public Date getData() {
@@ -52,20 +78,52 @@ public class Evento implements Serializable {
 		this.data = data;
 	}
 
-	public String getHorarioInicio() {
-		return horarioInicio;
+	public String getTurno() {
+		return turno;
 	}
 
-	public void setHorarioInicio(String horarioInicio) {
-		this.horarioInicio = horarioInicio;
+	public void setTurno(String turno) {
+		this.turno = turno;
 	}
 
-	public String getHorarioFinal() {
-		return horarioFinal;
+	public String getUnMatriz() {
+		return unMatriz;
 	}
 
-	public void setHorarioFinal(String horarioFinal) {
-		this.horarioFinal = horarioFinal;
+	public void setUnMatriz(String unMatriz) {
+		this.unMatriz = unMatriz;
+	}
+
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
+	}
+
+	public String getModalidade() {
+		return modalidade;
+	}
+
+	public void setModalidade(String modalidade) {
+		this.modalidade = modalidade;
+	}
+
+	public Responsavel getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
+	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
 	}
 
 	@Override
@@ -92,18 +150,7 @@ public class Evento implements Serializable {
 			return false;
 		return true;
 	}
-
-	public Evento(Integer id, String nome, Date data, String horarioInicio, String horarioFinal) {
-
-		this.id = id;
-		this.nome = nome;
-		this.data = data;
-		this.horarioInicio = horarioInicio;
-		this.horarioFinal = horarioFinal;
-	}
-
-	public Evento() {
-
-	}
+	
+	
 
 }
