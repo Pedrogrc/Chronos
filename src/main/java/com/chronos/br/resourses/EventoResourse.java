@@ -11,7 +11,7 @@ import com.chronos.br.domain.Evento;
 import com.chronos.br.services.ChronosService;
 
 @RestController
-@RequestMapping(value = "/evento")
+@RequestMapping(value = "/")
 public class EventoResourse {
 	
 	@Autowired

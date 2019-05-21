@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.avaliacao.br.services.exceptions.ObjectNotFoundException;
 import com.chronos.br.domain.Evento;
 import com.chronos.br.repositories.EventoRepository;
+import com.chronos.br.services.exception.ObjectNotFoundException;
 
 @Service
 public class ChronosService {

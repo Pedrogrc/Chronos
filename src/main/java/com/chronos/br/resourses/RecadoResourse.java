@@ -22,7 +22,7 @@ public class RecadoResourse {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Recado obj) {
-		service.insert(obj);
+		//service.insert(obj);
 		return ResponseEntity.noContent().build();
 
 	}

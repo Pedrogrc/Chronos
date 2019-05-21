@@ -14,7 +14,7 @@ import com.chronos.br.domain.Evento;
 import com.chronos.br.services.ChronosService;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/horario")
 public class HorarioResourse {
 	
 	@Autowired
