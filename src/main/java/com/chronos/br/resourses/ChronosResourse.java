@@ -9,20 +9,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chronos.br.domain.Evento;
-import com.chronos.br.services.ChronosService;
+import com.chronos.br.domain.Recado;
+import com.chronos.br.services.HorarioService;
+import com.chronos.br.services.RecadoService;
 
 @RestController
-@RequestMapping(value = "/horario")
+@RequestMapping(value = "/")
 public class ChronosResourse {
 	
 	@Autowired
-	private ChronosService service;
+	private HorarioService service;
+	
+	private RecadoService recService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Evento>> ListAll() {
+	public ResponseEntity<List<Evento>> ListAllEvt() {
 
 		List<Evento> lista = service.listAll();
+		return ResponseEntity.ok(lista);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Recado>> ListAllRec() {
 
+		List<Recado> lista = recService.listAll();
 		return ResponseEntity.ok(lista);
 	}
 

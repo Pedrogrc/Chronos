@@ -15,5 +15,4 @@ public class LoginService {
 	public void insert(Login obj) {
 		logRepo.exists(null);
 	}
-
 }

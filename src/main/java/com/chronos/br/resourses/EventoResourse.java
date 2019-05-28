@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chronos.br.domain.Evento;
-import com.chronos.br.services.ChronosService;
+import com.chronos.br.services.HorarioService;
 
 @RestController
 @RequestMapping(value = "/")
 public class EventoResourse {
 	
 	@Autowired
-	private ChronosService service;
+	private HorarioService service;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@RequestBody Evento obj) {
