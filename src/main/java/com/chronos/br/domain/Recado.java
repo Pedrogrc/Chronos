@@ -1,6 +1,7 @@
 package com.chronos.br.domain;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ public class Recado implements Serializable {
 	private Date dataInicio;
 	private Date datafim;
 	private String turno;
-	
+
 	public Integer getId() {
 		return id;
 	}

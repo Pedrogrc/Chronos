@@ -1,4 +1,7 @@
 /*package com.chronos.br.resourses;
+=======
+package com.chronos.br.resourses;
+>>>>>>> 2957d89ebf13a558f58fc9e5a58cb0d03ac58581
 
 import java.util.List;
 
@@ -32,6 +35,7 @@ public class ChronosResourse {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Recado>> ListAllRec() {
 
+<<<<<<< HEAD
 		List<Recado> lista1 = recService.listAll();
 		return ResponseEntity.ok(lista1);
 	}
