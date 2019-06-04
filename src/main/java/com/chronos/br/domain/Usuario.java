@@ -100,6 +100,7 @@ public class Usuario implements Serializable {
 		this.usuario = usuario;
 		this.senha = senha;
 		this.perfis = perfis;
+		addPerfil(Perfil.ADMIN);
 	}
 	
 	public Set<Perfil> getPerfil() {
