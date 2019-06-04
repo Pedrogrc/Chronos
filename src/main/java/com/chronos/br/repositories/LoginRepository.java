@@ -9,6 +9,6 @@ import com.chronos.br.domain.Usuario;
 @Repository
 public interface LoginRepository extends JpaRepository<Usuario, Integer>{
 	@Transactional(readOnly=true)
-	Usuario findByEmail(String email);
+	Usuario findByUsuario(String usuario);
 
 }

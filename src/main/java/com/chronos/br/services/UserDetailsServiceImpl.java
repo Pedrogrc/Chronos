@@ -14,12 +14,12 @@ import com.chronos.br.security.UserSS;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
-	private LoginRepository repo;
+	private LoginRepository logRepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String user) throws UsernameNotFoundException {
 		
-		Usuario usuario = repo.findByEmail(user);
+		Usuario usuario = logRepo.findByUsuario(user);
 		
 		if (usuario == null) {
 			throw new UsernameNotFoundException(user);
