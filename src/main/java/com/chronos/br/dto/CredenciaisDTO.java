@@ -5,19 +5,19 @@ import java.io.Serializable;
 public class CredenciaisDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String email;
+	private String usuario;
 	private String senha;
 
 	public CredenciaisDTO() {
 		
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {

@@ -43,7 +43,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			//Pega o usuário e senha passado via POST pela aplicação
 			CredenciaisDTO credenciais = new ObjectMapper().readValue(req.getInputStream(), CredenciaisDTO.class);
 
-			UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(credenciais.getEmail(),
+			UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(credenciais.getUsuario(),
 					credenciais.getSenha(), new ArrayList<>());
 
 			// Verifica se o usuário e senha são válidos com base no que foi implementado no UserDetails
@@ -81,7 +81,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		private String json() {
 			long date = new Date().getTime();
 			return "{\"timestamp\": " + date + ", " + "\"status\": 401, " + "\"error\": \"Não autorizado\", "
-					+ "\"message\": \"Email ou senha inválidos\", " + "\"path\": \"/login\"}";
+					+ "\"message\": \"Usuário ou senha inválidos\", " + "\"path\": \"/login\"}";
 		}
 	}
 }

@@ -72,9 +72,6 @@ public class Excel {
 		case Cell.CELL_TYPE_NUMERIC:
 			return cell.getNumericCellValue() + "";
 
-		case Cell.CELL_TYPE_BOOLEAN:
-			return cell.getBooleanCellValue() + "";
-
 		default:
 			return "";
 		}
