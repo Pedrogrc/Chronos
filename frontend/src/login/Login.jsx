@@ -21,7 +21,7 @@ export default class Horarios extends Component {
           this.setState({ erro: "Preencha e-mail e senha para continuar!" });
         } else {
           try {
-            const response = await api.post("/login", {usuario, senha });
+            const response = await api.post("/usuario", {usuario, senha });
             login(response.headers.authorization);
             this.props.history.push("/horarios");
           } catch (err) {
@@ -36,6 +36,9 @@ export default class Horarios extends Component {
     render() { 
         return (
             <div className="col-sm-4">
+                <div>
+                    <h1 className="logo-name"><i className="fa fa-user-o"></i></h1>
+                </div>
             
                 <h3>Bem vindo ao Chronos</h3>
                 
@@ -43,7 +46,7 @@ export default class Horarios extends Component {
 
                 <form className="m-t" onSubmit={this.handleLogar}>
                     <div className="form-group">
-                        <input type="usuario" className="form-control" placeholder="e-mail" required="" value={this.state.usuario} onChange={e => this.setState({ usuario: e.target.value })}/>
+                        <input type="usuario" className="form-control" placeholder="usuario" required="" value={this.state.usuario} onChange={e => this.setState({ usuario: e.target.value })}/>
                     </div>
                     <div className="form-group">
                         <input type="password" className="form-control" placeholder="senha" required="" value={this.state.senha} onChange={e => this.setState({ senha: e.target.value })}/>

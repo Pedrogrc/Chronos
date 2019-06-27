@@ -15,4 +15,3 @@ api.interceptors.request.use(async config => {
 });
 
 export default api
-//proxy rede 10.1.118.254:3128
