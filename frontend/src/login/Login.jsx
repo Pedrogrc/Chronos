@@ -10,7 +10,7 @@ export default class Horarios extends Component {
     }
 
     state = {
-        usuario: "joao@exemplo.com",
+        usuario: "fulaninho",
         senha: "12345",
         erro: ""
     };
@@ -46,10 +46,10 @@ export default class Horarios extends Component {
 
                 <form className="m-t" onSubmit={this.handleLogar}>
                     <div className="form-group">
-                        <input type="usuario" className="form-control" placeholder="usuario" required="" value={this.state.usuario} onChange={e => this.setState({ usuario: e.target.value })}/>
+                        <input type="usuario" className="form-control" placeholder="Usuário" required="" onChange={e => this.setState({ usuario: e.target.value })}/>
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control" placeholder="senha" required="" value={this.state.senha} onChange={e => this.setState({ senha: e.target.value })}/>
+                        <input type="password" className="form-control" placeholder="Senha" required="" onChange={e => this.setState({ senha: e.target.value })}/>
                     </div>
                     <button type="submit" className="btn btn-primary block full-width m-b">Entrar</button>
                 </form>

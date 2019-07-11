@@ -5,6 +5,7 @@ import { isAuthenticated, logout } from "../services/auth";
 import Horarios from '../horarios/Horarios'
 import Recados from '../recados/Recados'
 import Login from '../login/Login'
+import Ajuda from '../ajuda/Ajuda'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -26,6 +27,7 @@ const Routes = () => (
       <Route path="/signup" component={() => <h1>SignUp</h1>} />
       <PrivateRoute path="/horarios" component={Horarios} />
       <PrivateRoute path="/recados" component={Recados} />
+      <PrivateRoute path="/ajuda" component={Ajuda} />
       <Route path="*" component={() => <h1>Página não encontrada</h1>} />
     </Switch>
   </BrowserRouter>

@@ -65,7 +65,7 @@ export default class Horarios extends Component {
 
                             <div className="form-group">
                                 <label for="SALA">Sala: </label>
-                                <input type="number" required="required" className="form-control numbers" />
+                                <input type="number" required="required" className="form-control numbers" placeholder="Insira o número da sala desejada" />
                             </div>
 
                             <div>

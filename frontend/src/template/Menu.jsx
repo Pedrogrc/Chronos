@@ -15,6 +15,9 @@ export default props => {
               <a href="/recados"><i className="fa fa-address-card"></i> <span>Recados</span></a>
             </li>
             <li className="active">
+              <a href="/ajuda"><i className="fa fa-question-circle"></i> <span>Ajuda</span></a>
+            </li>
+            <li className="active">
               <a href="/logout"><i className="fa fa-sign-out"></i> <span>Sair</span></a>
             </li>
           </ul>
