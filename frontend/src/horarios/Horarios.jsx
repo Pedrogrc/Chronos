@@ -1,28 +1,21 @@
 import React, { Component } from 'react'
-import api from '../services/api'
 
 export default class Horarios extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            listaHorarios: []
-        }
+        this.state = { value: '' };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
 
-    componentDidMount() {
-        api.get('/horarios')
-            .then(response => {
-
-                console.log(response.data)
-                this.setState({ listaHorarios: response.data });
-            })
-            .catch(erro => {
-                if (erro.response.status === 403) {
-                    this.props.history.push("/");
-                }
-            })
-
+    handleSubmit(event) {
+        alert('Horário cadastrado! ' + this.state.value);
+        event.preventDefault();
     }
 
     render() {
@@ -32,69 +25,75 @@ export default class Horarios extends Component {
                     <div className="col-lg-12">
                         <div className="text-left m-t-lg"><h1> Horários </h1></div>
 
-                        <div>
-                            <p></p>
-                        </div>
+                        <br />
+                        <form onSubmit={this.handleSubmit}>
 
-                        <form className="col-lg-12">
+                            <label>
+                                Evento:
+                            <br />
+                            <input type="text" onChange={this.handleChange} />
+                            </label>
+
+                            <br />
+                            <label>
+                                Data:
+                            <br />
+                            <input type="date" onChange={this.handleChange} />
+                            </label>
+
+                            <br />
+                            <label>
+                                Responsável:
+                            <br />
+                            <input type="text" onChange={this.handleChange} />
+                            </label>
+
+                            <br />
+                            <label>
+                                Unidade:
+                                    <br />
+                                    <select onChange={this.handleChange}>
+                                    <option value="saojose">São José</option>
+                                    <option value="florianopolis">Florianópolis</option>
+                                    <option value="palhoca">Palhoça</option>
+                                </select>
+                            </label>
+
+                            <br />
+                            <label>
+                                Curso:
+                            <br />
+                            <input type="text" onChange={this.handleChange} />
+                            </label>
+
+                            <br />
+                            <label>
+                                Sala:
+                                <br />
+                            <input type="number" onChange={this.handleChange} />
+                            </label>
+
+                            <br />
+                            <label>
+                                Turno:
+                                    <br />
+                                    <select onChange={this.handleChange}>
+                                    <option value="matutino">Matutino</option>
+                                    <option value="vespertino">Vespertino</option>
+                                    <option value="noturno">Noturno</option>
+                                </select>
+                            </label>
+
                             <div className="form-group">
-                                <label for="titulo">Título</label>
-                                <input type="text" className="form-control" id="titulo" placeholder="Insira o título" />
-                            </div>
-
-                            <div>
-                                <p></p>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="DATA">Data: </label>
-                                <input id="datepicker" width="276" />
-                            </div>
-
-                            <label for="inputState">Unidade</label>
-                            <select id="inputState" className="form-control">
-                                <option selected>Selecione...</option>
-                                <option>Palhoça</option>
-                                <option>São José</option>
-                                <option>Florianópolis</option>
-                            </select>
-
-                            <div>
-                                <p></p>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="SALA">Sala: </label>
-                                <input type="number" required="required" className="form-control numbers" placeholder="Insira o número da sala desejada" />
-                            </div>
-
-                            <div>
-                                <p></p>
-                            </div>
-
-                            <label for="inputState">Turno</label >
-                            <select id="inputState" className="form-control">
-                                <option selected>Selecione...</option>
-                                <option>Matutino</option>
-                                <option>Vespertino</option>
-                                <option>Noturno</option>
-                            </select>
-
-                            <div>
-                                <p></p>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="exampleFormControlFile1">Excel</label>
+                                <label for="exampleFormControlFile1">Excel (opcional)</label>
                                 <input type="file" className="form-control-file" id="exampleFormControlFile1" />
                             </div>
 
-                            <a href="/"><button type="button" className="btn btn-primary" >Cadastrar</button></a>
+                            <br />
+                            <input type="submit" className="btn btn-primary" value="Cadastrar" />
 
-                            <a href="/horarios/Lista_horarios.jsx"><button type="button" className="btn btn-primary bottom" >Listar horários</button></a>
-
-
-
+                            <br />
+                            <input type="list" className="btn btn-primary" value="Gerenciar" />
                         </form>
                     </div>
                 </div>
@@ -102,4 +101,3 @@ export default class Horarios extends Component {
         );
     }
 }
-
